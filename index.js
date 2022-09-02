@@ -29,7 +29,7 @@ const client = new Client({
   port: process.env.DB_PORT,
   host: process.env.DB_HOST,
   password: process.env.DB_PASSWORD,
-  ssl: false,
+  ssl:  false,
 });
 
 client.connect();
