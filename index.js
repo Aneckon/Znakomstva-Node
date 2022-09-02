@@ -8,7 +8,7 @@ const sequelize = require('./db');
 const router = require('./routes/index');
 const path = require('path');
 
-const PORT = process.env.PORT || 3000;
+const PORT = 5000;
 
 const app = express();
 
@@ -29,7 +29,7 @@ const client = new Client({
   port: process.env.DB_PORT,
   host: process.env.DB_HOST,
   password: process.env.DB_PASSWORD,
-  ssl:  false,
+  ssl: false,
 });
 
 client.connect();
