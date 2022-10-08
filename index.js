@@ -24,17 +24,10 @@ app.get('/', (req, res) => {
 });
 
 const client = new Client({
-  user: process.env.DB_USER,
-  database: process.env.DB_NAME,
-  port: process.env.DB_PORT,
-  host: process.env.DB_HOST,
-  password: process.env.DB_PASSWORD,
-  ssl: false,
-  extra: {
-    ssl: {
-      rejectUnauthorized: false,
-    },
-  },
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false
+  }
 });
 
 client.connect();
