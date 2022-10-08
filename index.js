@@ -8,8 +8,6 @@ const sequelize = require('./db');
 const router = require('./routes/index');
 const path = require('path');
 
-const PORT = 3000;
-
 const app = express();
 
 app.use(cors());
@@ -45,8 +43,8 @@ const start = async () => {
     await sequelize.authenticate();
     await sequelize.sync();
     console.log('Connection has been established successfully.');
-    app.listen(PORT || 5000, () => {
-      console.log(`server running on port ${PORT || 5000}`);
+    app.listen(process.env.PORT || 5000, () => {
+      console.log(`server running on port ${process.env.PORT || 5000}`);
     });
   } catch (e) {
     console.log(e);
