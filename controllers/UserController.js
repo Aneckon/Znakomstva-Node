@@ -27,7 +27,7 @@ class UserController {
     }
     let comparePassword = await bcrypt.compareSync(password, user.password);
     if (!comparePassword) {
-      return res.json({error: 'неверный пароль'});
+      return res.json({ error: 'неверный пароль' });
     }
     const refreshToken = TokenService.generateJWT(user.id, user.email);
     const token = await Token.create({ refreshToken, userId: user.id });
