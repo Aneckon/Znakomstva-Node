@@ -29,7 +29,7 @@ class UserController {
     if (!comparePassword) {
       return res.json({error: 'неверный пароль'});
     }
-    const refreshToken = TokenService.generateJWT(user.id, user.email);
+    const refreshToken = TokenService.generateJWT(user.email);
     const token = await Token.create({ refreshToken, userId: user.id });
     res.cookie('refreshToken', refreshToken, { maxAge: 30 * 24 * 60 * 60 * 1000, httpOnly: true });
     return res.json(token);
