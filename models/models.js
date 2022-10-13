@@ -6,7 +6,7 @@ const User = sequelize.define('user', {
     images: {type: DataTypes.STRING},
     name: {type: DataTypes.STRING, required: true},
     birthday: {type: DataTypes.STRING, required: true},
-    gender: {type: DataTypes.STRING, defaultValue: 'MALE'}, // FEMALE or MALE
+    gender: {type: DataTypes.STRING, required: true},
     email: {type: DataTypes.STRING, unique: true},
     password: {type: DataTypes.STRING},
     height: {type: DataTypes.FLOAT},
