@@ -17,6 +17,8 @@ app.use(cookieParser());
 app.use(fileUpload());
 app.use('/api', router);
 
+app.disable('etag');
+
 const client = new Client({
   connectionString: process.env.DATABASE_URL,
   ssl: {
