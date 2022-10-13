@@ -60,6 +60,7 @@ class UserController {
     mainProfilePicture.mv(path.resolve(__dirname, '..', 'static', filename));
     const user = await User.update(
       {
+        birthday,
         images,
         gender,
         height,
