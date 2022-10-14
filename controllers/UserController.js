@@ -63,7 +63,6 @@ class UserController {
         name,
         gender,
         birthday,
-        images,
         height,
         weight,
         hairColor,
