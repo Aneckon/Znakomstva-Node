@@ -54,7 +54,10 @@ class UserController {
   }
 
   async addInfo(req, res) {
-    const { id, name, height, birthday, gender, weight, hairColor, eyeColor, datePurpose, aboutMyself, mainProfilePicture } = req.body;
+    const { id, name, height, birthday, gender, weight, hairColor, eyeColor, datePurpose, aboutMyself } = req.body;
+    const { mainProfilePicture } = req.files;
+    let filename = uuid.v4() + '.jpg';
+    mainProfilePicture.mv(path.resolve(__dirname, '..', 'static', filename));
     const user = await User.update(
       {
         name,
@@ -66,7 +69,7 @@ class UserController {
         eyeColor,
         datePurpose,
         aboutMyself,
-        mainProfilePicture,
+        mainProfilePicture: filename,
       },
       { where: { id } },
     );
